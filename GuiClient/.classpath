@@ -14,6 +14,6 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/myFirstEjbClient"/>
-	<classpathentry kind="lib" path="C:/Users/Wefx/Downloads/json-20210307.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Andrei/Downloads/json-20210307.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
