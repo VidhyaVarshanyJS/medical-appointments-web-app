@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+      
+    <h:head>
+        <title>Medical Online</title>
+    </h:head>
+    <h:body style="padding: 60px;">
+        <b:navBar brand="Medical Online" brandHref="#{request.contextPath}/index.xhtml" fixed="top" inverse="true">
+            <b:navbarLinks>
+                <b:navLink value="Home page" href="#{request.contextPath}/index.xhtml"></b:navLink>
+                <b:navLink value="Create appointment" href="#{request.contextPath}/userFilter/create.xhtml"></b:navLink>   
+                <b:dropMenu value="Appointments lists" contentDisabled="#{navBarBean.dropMenuDisabled}">
+			        <b:navLink value="Yours appointments" href="#{request.contextPath}/userFilter/yappointments.xhtml"></b:navLink>  
+			        <b:navLink value="Pending appointments" href="#{request.contextPath}/userFilter/pendingappointments.xhtml"></b:navLink>  
+			    </b:dropMenu>                     
+                <b:navLink value="Centers list" href="#{request.contextPath}/userFilter/centers.xhtml"></b:navLink>             
+                <b:dropMenu value="User settings" contentDisabled="#{navBarBean.dropMenuDisabled}">
+			        <b:navLink value="Edit profile" href="#{request.contextPath}/userFilter/editprofile.xhtml"></b:navLink>
+                	<b:navLink value="Change password" href="#{request.contextPath}/userFilter/changepass.xhtml"></b:navLink>                
+               		<b:navLink value="Logout" href="#{request.contextPath}/userFilter/logout.xhtml"></b:navLink>
+			    </b:dropMenu>                                
+            </b:navbarLinks>
+        </b:navBar>
+
+		<b:container>
+			<b:jumbotron>
+				<h3>Hello, you are now logged in as: <i><h:outputText value="#{profileBean.userDTO.username}" escape="true"/></i>!
+				</h3>
+			</b:jumbotron>
+		</b:container>
+		<b:container>
+			<b:jumbotron>
+				<h2 class="title-form-login">Your profile</h2>
+				<br />
+				<b>First name:</b><h:outputText value="&#160;" /> <h:outputText value="#{profileBean.userDTO.firstName}" escape="true"/>
+				<br />
+				<b>Last name:</b><h:outputText value="&#160;" /> <h:outputText value="#{profileBean.userDTO.lastName}" escape="true"/>
+				<br />
+				<b>Date of birth:</b><h:outputText value="&#160;" /> <h:outputText value="#{profileBean.userDTO.dateOfBirth}" escape="true"/>
+				<br />
+				<b>Identity card number:</b><h:outputText value="&#160;" /> <h:outputText value="#{profileBean.userDTO.identityCardNumber}" escape="true"/>
+				<br />
+				<b>Gender:</b><h:outputText value="&#160;" /> <h:outputText value="#{profileBean.userDTO.gender}" escape="true"/>
+				
+				<br />
+				<br />
+			</b:jumbotron>
+        </b:container>
+        
+        <b:container>
+			<b:jumbotron>
+	                <div align="center">
+	                	<h3>Centers list</h3>
+	                </div>
+	               <h:form>
+					  <b:dataTable value="#{centerBean.centers}"
+					               var="center">
+					    <f:facet name="header">
+					      <tr>
+						      <th>#ID</th>
+						      <th>Center name</th>
+						      <th>Center city</th>
+						      <th>Address</th>
+						      <th>Phone</th>
+						      <th>Disponibility per day</th>					      
+					      </tr>
+					    </f:facet>
+					    <b:dataTableColumn value="#{center.idcenter}" order="asc"/>
+					    <b:dataTableColumn value="#{center.centerName}" />
+					    <b:dataTableColumn value="#{center.centerCity}" />
+					    <b:dataTableColumn value="#{center.address}" />
+					    <b:dataTableColumn value="#{center.phone}" />				
+					    <b:dataTableColumn value="#{center.disponibilityPerDay}" />					    	    
+					  </b:dataTable>
+					</h:form>
+			</b:jumbotron>
+        </b:container>
+			
+    </h:body>
+</html>

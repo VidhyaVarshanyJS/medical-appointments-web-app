@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="myFirstEar">
+        <wb-resource deploy-path="/" source-path="/EarContent" tag="defaultRootSource"/>
+        <dependent-module archiveName="myFirstEjb.jar" deploy-path="/" handle="module:/resource/myFirstEjb/myFirstEjb">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="myFirstEjbClient.jar" deploy-path="/" handle="module:/resource/myFirstEjbClient/myFirstEjbClient">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="GuiClient.war" deploy-path="/" handle="module:/resource/GuiClient/GuiClient">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

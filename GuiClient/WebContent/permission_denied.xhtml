@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Medical Online</title>
+        <meta http-equiv="refresh" content="5;url=index.xhtml" />        
+    </h:head>
+    <h:body style="padding: 60px;">
+        <b:navBar brand="Medical Online" brandHref="#{request.contextPath}/index.xhtml" fixed="top" inverse="true">
+            <b:navbarLinks>
+                <b:navLink value="Home page" href="#{request.contextPath}/index.xhtml"></b:navLink>
+                <b:navLink value="About" href="#about"></b:navLink>
+                <b:navLink value="Contact" href="#contact"></b:navLink>
+            </b:navbarLinks>
+        </b:navBar>
+       
+		<b:container>
+			<b:jumbotron>
+	                <div align="center">
+	                	<h3>Permission denied!</h3>
+	                </div>
+	                You don't have permission to acces this page!
+	                <br/>
+	                You will be redirect in 7 seconds.
+			</b:jumbotron>
+        </b:container>
+			
+    </h:body>
+</html>

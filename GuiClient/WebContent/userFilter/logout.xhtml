@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+      
+    <h:head>
+        <title>Medical Online</title>
+    </h:head>
+    <h:body style="padding: 60px;">
+        <b:navBar brand="Medical Online" brandHref="#{request.contextPath}/index.xhtml" fixed="top" inverse="true">
+            <b:navbarLinks>
+                <b:navLink value="Home page" href="#{request.contextPath}/index.xhtml"></b:navLink>
+                <b:navLink value="Create appointment" href="#{request.contextPath}/userFilter/create.xhtml"></b:navLink>   
+                <b:dropMenu value="Appointments lists" contentDisabled="#{navBarBean.dropMenuDisabled}">
+			        <b:navLink value="Yours appointments" href="#{request.contextPath}/userFilter/yappointments.xhtml"></b:navLink>  
+			        <b:navLink value="Pending appointments" href="#{request.contextPath}/userFilter/pendingappointments.xhtml"></b:navLink>  
+			        <b:navLink value="Yours future appointments" href="#{request.contextPath}/userFilter/futureappointments.xhtml"></b:navLink>  			        
+			    </b:dropMenu>                     
+                <b:navLink value="Centers list" href="#{request.contextPath}/userFilter/centers.xhtml"></b:navLink>             
+                <b:dropMenu value="User settings" contentDisabled="#{navBarBean.dropMenuDisabled}">
+			        <b:navLink value="Edit profile" href="#{request.contextPath}/userFilter/editprofile.xhtml"></b:navLink>
+                	<b:navLink value="Change password" href="#{request.contextPath}/userFilter/changepass.xhtml"></b:navLink>                
+               		<b:navLink value="Logout" href="#{request.contextPath}/userFilter/logout.xhtml"></b:navLink>
+			    </b:dropMenu>                                
+            </b:navbarLinks>
+        </b:navBar>
+        
+		<br/><br/>	
+		<b:container>
+			<b:jumbotron>
+				<h:form>
+	                <div align="center">
+	                	<h4>You are logged in as <i><h:outputText value="#{profileBean.userDTO.username}" escape="true"/></i>!
+	                		<br/><br/>
+	                		Are you sure you want to log out?	                		
+	                	</h4>
+	                </div>	                
+	                <b:commandButton look="primary btn-block" value="Logout" icon="log-in" size="lg" action="#{loginBean.logout}" />
+	            </h:form>
+	            <br/>				
+
+			</b:jumbotron>
+        </b:container>
+			
+    </h:body>
+</html>

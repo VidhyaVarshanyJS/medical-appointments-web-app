@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+      
+    <h:head>
+        <title>Medical Online</title>
+        <h:outputStylesheet library="css" name="datastyles.css"/>        
+    </h:head>
+    <h:body style="padding: 60px;">
+        <b:navBar brand="Medical Online" brandHref="#{request.contextPath}/index.xhtml" fixed="top" inverse="true">
+            <b:navbarLinks>
+                <b:navLink value="Home page" href="#{request.contextPath}/index.xhtml"></b:navLink>
+                <b:navLink value="Create appointment" href="#{request.contextPath}/userFilter/create.xhtml"></b:navLink>   
+                <b:navLink value="Yours appointments" href="#{request.contextPath}/userFilter/yappointments.xhtml"></b:navLink>    
+                <b:navLink value="Centers list" href="#{request.contextPath}/userFilter/centers.xhtml"></b:navLink>             
+                <b:dropMenu value="User settings" contentDisabled="#{navBarBean.dropMenuDisabled}">
+			        <b:navLink value="Edit profile" href="#{request.contextPath}/userFilter/editprofile.xhtml"></b:navLink>
+                	<b:navLink value="Change password" href="#{request.contextPath}/userFilter/changepass.xhtml"></b:navLink>                
+               		<b:navLink value="Logout" href="#{request.contextPath}/userFilter/logout.xhtml"></b:navLink>
+			    </b:dropMenu>                                
+            </b:navbarLinks>
+        </b:navBar>
+
+		<b:container>
+			<b:jumbotron>
+				<h3>Hello, you are now logged in as: <i><h:outputText value="#{profileBean.userDTO.username}" escape="true"/></i>!
+				</h3>
+			</b:jumbotron>
+		</b:container>
+		        
+        <b:container>
+			<b:jumbotron>
+	                <div align="center">
+	                	<h3>Your future appointments</h3>
+	                	<div align="center">
+	                		Only your accepted appointments that will take place in the future are displayed.
+	                	</div>
+	                </div>
+	                <br/><br/>
+					  <h:form>
+						  <b:dataTable value="#{appointmentBean.userFutureAppointments}"
+						               var="uapp">
+						    <f:facet name="header">
+						      <tr>
+							      <th>#ID</th>
+							      <th>Center ID</th>
+							      <th>Creation date</th>
+							      <th>Appointment date</th>
+							      <th>Last update</th>
+							      <th>Type</th>			
+						      </tr>
+						    </f:facet>				    
+						    <b:dataTableColumn value="#{uapp.idappointment}" order="asc"/>
+						    <b:dataTableColumn value="#{uapp.centerID}" />
+						    <b:dataTableColumn value="#{uapp.creationDate}" />
+						    <b:dataTableColumn value="#{uapp.appointmentDate}" />
+						    <b:dataTableColumn value="#{uapp.lastUpdate}" />				
+						    <b:dataTableColumn value="#{uapp.type}" />				    	    
+						  </b:dataTable>
+						</h:form>
+			</b:jumbotron>
+        </b:container>
+			
+    </h:body>
+</html>

@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+      
+    <h:head>
+        <title>Medical Online</title>
+        <script src="https://www.google.com/recaptcha/api.js"></script>
+    </h:head>
+    <h:body style="padding: 60px;">
+        <b:navBar brand="Medical Online" brandHref="#{request.contextPath}/index.xhtml" fixed="top" inverse="true">
+            <b:navbarLinks>
+                <b:navLink value="Home page" href="#{request.contextPath}/index.xhtml"></b:navLink>
+
+            </b:navbarLinks>
+        </b:navBar>
+
+		<b:container>
+			<b:jumbotron>
+				<h:form styleClass="form-signin" prependId="false">
+	                <div align="center">
+	                	<h3>Please sign in into your account</h3>
+	                </div>
+	                <b:messages infoStyle="color:darkgreen" errorStyle="color:darkred"></b:messages>
+	                <b:inputText placeholder="Username" required="true" label="Username"  value="#{loginBean.loginDTO.username}">
+	                    <f:facet name="prepend">
+	                        <b:icon name="user" />
+	                    </f:facet>
+	                </b:inputText>
+	                
+	                <b:inputSecret placeholder="Password" required="true" label="Password" validatorMessage="Enter password" 
+						value="#{loginBean.loginDTO.password}">
+						<f:facet name="prepend">
+	                        <b:iconAwesome name="key" />
+	                    </f:facet>
+	                </b:inputSecret>
+	                
+	                <div class="g-recaptcha" data-sitekey="6LdhxkobAAAAAOebr7Z5jxWCTWaHSWTW-L7zo_CR"></div>
+	                <br/>
+	                <b:commandButton look="primary btn-block" value="Sign In" icon="log-in" size="lg" action="#{loginBean.loginUser}" />	                
+	            </h:form>
+	            <br/>
+	            <small><a href="#{request.contextPath}/register.xhtml">Create new account</a></small>
+			</b:jumbotron>
+        </b:container>
+        <br/>
+        <b:container>
+			<b:jumbotron>
+	                <div align="center">
+	                	<h3>Available centers list</h3>
+	                </div>
+	               <h:form>
+					  <b:dataTable value="#{centerBean.centers}"
+					               var="center"
+					               row-group="rowGroup:{dataSrc:2,endRender: function ( rows, group ) {}}">
+					    <f:facet name="header">
+					      <tr>
+						      <th>#ID</th>
+						      <th>Center name</th>
+						      <th>Center city</th>
+						      <th>Address</th>
+						      <th>Phone</th>
+						      <th>Disponibility per day</th>					      
+					      </tr>
+					    </f:facet>
+					    <b:dataTableColumn value="#{center.idcenter}" order="asc"/>
+					    <b:dataTableColumn value="#{center.centerName}" />
+					    <b:dataTableColumn value="#{center.centerCity}" />
+					    <b:dataTableColumn value="#{center.address}" />
+					    <b:dataTableColumn value="#{center.phone}" />				
+					    <b:dataTableColumn value="#{center.disponibilityPerDay}" />					    	    
+					  </b:dataTable>
+					</h:form>
+			</b:jumbotron>
+        </b:container>
+			
+    </h:body>
+</html>

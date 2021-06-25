@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+         
+    <h:head>
+        <title>Medical Online</title>
+         <script src="https://www.google.com/recaptcha/api.js"></script>
+    </h:head>
+    
+    
+	
+    <h:body style="padding: 60px;">
+        <b:navBar brand="Medical Online" brandHref="#{request.contextPath}/index.xhtml" fixed="top" inverse="true">
+            <b:navbarLinks>
+                <b:navLink value="Home page" href="#{request.contextPath}/index.xhtml"></b:navLink>
+                <b:navLink value="About" href="#about"></b:navLink>
+                <b:navLink value="Contact" href="#contact"></b:navLink>
+            </b:navbarLinks>
+        </b:navBar>
+
+		<b:container>
+			<b:jumbotron>
+				<h:form styleClass="form-signin" prependId="false">
+	                <div align="center">
+	                	<h3>Create a new account</h3>
+	                </div>
+	                <b:messages infoStyle="color:darkgreen" errorStyle="color:darkred"></b:messages>
+	                <b:inputText placeholder="Username" required="true" label="Username"  value="#{registerBean.registerDTO.username}">
+	                    <f:facet name="prepend">
+	                        <b:icon name="user" />
+	                    </f:facet>
+	                </b:inputText>
+	                
+	                <b:inputSecret placeholder="Password" required="true" label="Password" validatorMessage="Enter password" 
+						value="#{registerBean.registerDTO.password}">
+						<f:facet name="prepend">
+	                        <b:iconAwesome name="key" />
+	                    </f:facet>
+	                </b:inputSecret>
+	                
+	                <b:inputText placeholder="First name" required="true" label="First name" value="#{registerBean.registerDTO.firstName}">
+	                    <f:facet name="prepend">
+	                        <b:icon name="pencil" />
+	                    </f:facet>
+	                </b:inputText>
+	                
+	                <b:inputText placeholder="Last name" required="true" label="Last name" value="#{registerBean.registerDTO.lastName}">
+	                    <f:facet name="prepend">
+	                        <b:icon name="pencil" />
+	                    </f:facet>
+	                </b:inputText>
+	                
+	                <b:dateTimePicker placeholder="Date of birth" required="true" label="Date of birth" value="#{registerBean.registerDTO.dateOfBirth}" allow-input-toggle="true" icon-position="left" show-date="true"
+                    	show-time="false" show-icon="true" />            	                
+	                                  
+	                <b:inputText placeholder="CNP" required="true" label="CNP" value="#{registerBean.registerDTO.identityCardNumber}">
+	                    <f:facet name="prepend">
+	                        <b:icon name="open-file" />
+	                    </f:facet>
+	                </b:inputText>
+	                
+	                <small><b>Choose gender:</b></small>
+					<b:radiobutton label="Choose gender" value="#{registerBean.registerDTO.gender}">
+					    <f:selectItem itemValue="male"   itemLabel="male" />
+					    <f:selectItem itemValue="female" itemLabel="female" />
+					    <f:selectItem itemValue="not saying"  itemLabel="not saying" />
+					</b:radiobutton>	                
+	                <div class="g-recaptcha" data-sitekey="6Lf37UkbAAAAAGK9zBlqfMMCrTQBriXx6OREKECR"></div>
+	                <br/>
+	                <b:commandButton look="primary btn-block" value="Register" icon="log-in" size="lg" action="#{registerBean.registerUser}" />
+	            </h:form>
+	            <br/>
+			</b:jumbotron>
+        </b:container>
+    </h:body>
+</html>

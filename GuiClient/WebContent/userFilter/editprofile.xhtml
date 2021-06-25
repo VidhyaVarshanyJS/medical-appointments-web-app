@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+      
+    <h:head>
+        <title>Medical Online</title>
+    </h:head>
+    <h:body style="padding: 60px;">
+        <b:navBar brand="Medical Online" brandHref="#{request.contextPath}/index.xhtml" fixed="top" inverse="true">
+            <b:navbarLinks>
+                <b:navLink value="Home page" href="#{request.contextPath}/index.xhtml"></b:navLink>
+                <b:navLink value="Create appointment" href="#{request.contextPath}/userFilter/create.xhtml"></b:navLink>   
+                <b:dropMenu value="Appointments lists" contentDisabled="#{navBarBean.dropMenuDisabled}">
+			        <b:navLink value="Yours appointments" href="#{request.contextPath}/userFilter/yappointments.xhtml"></b:navLink>  
+			        <b:navLink value="Pending appointments" href="#{request.contextPath}/userFilter/pendingappointments.xhtml"></b:navLink>  
+			        <b:navLink value="Yours future appointments" href="#{request.contextPath}/userFilter/futureappointments.xhtml"></b:navLink>  			        
+			    </b:dropMenu>                     
+                <b:navLink value="Centers list" href="#{request.contextPath}/userFilter/centers.xhtml"></b:navLink>             
+                <b:dropMenu value="User settings" contentDisabled="#{navBarBean.dropMenuDisabled}">
+			        <b:navLink value="Edit profile" href="#{request.contextPath}/userFilter/editprofile.xhtml"></b:navLink>
+                	<b:navLink value="Change password" href="#{request.contextPath}/userFilter/changepass.xhtml"></b:navLink>                
+               		<b:navLink value="Logout" href="#{request.contextPath}/userFilter/logout.xhtml"></b:navLink>
+			    </b:dropMenu>                                
+            </b:navbarLinks>
+        </b:navBar>
+
+		<b:container>
+			<b:jumbotron>
+				<br />
+				<h:form>
+	                <div align="center">
+	                	<h3>Edit your profile</h3>
+	                </div>
+	                	                
+	                <b:inputText placeholder="First name" required="true" label="First name" value="#{profileBean.userDTO.firstName}">
+	                    <f:facet name="prepend">
+	                        <b:icon name="pencil" />
+	                    </f:facet>
+	                </b:inputText>
+	                
+	                <b:inputText placeholder="Last name" required="true" label="Last name" value="#{profileBean.userDTO.lastName}">
+	                    <f:facet name="prepend">
+	                        <b:icon name="pencil" />
+	                    </f:facet>
+	                </b:inputText>
+	                
+	                <b:dateTimePicker placeholder="Date of birth" required="true" label="Date of birth" value="#{profileBean.userDTO.dateOfBirth}" allow-input-toggle="true" icon-position="left" show-date="true"
+                    	show-time="false" show-icon="true" />            	                
+	                                  
+	                <b:inputText placeholder="CNP" required="true" label="CNP" value="#{profileBean.userDTO.identityCardNumber}">
+	                    <f:facet name="prepend">
+	                        <b:icon name="open-file" />
+	                    </f:facet>
+	                </b:inputText>
+	                
+	                <small><b>Choose gender:</b></small>
+					<b:radiobutton label="Choose gender" value="#{profileBean.userDTO.gender}">
+					    <f:selectItem itemValue="male" itemLabel="male"/>
+					    <f:selectItem itemValue="female" itemLabel="female" />
+					    <f:selectItem itemValue="not saying"  itemLabel="not saying" />
+					</b:radiobutton>
+	                <hr/>
+	                <b:commandButton look="primary btn-block" value="Submit changes" icon="log-in" size="lg" action="#{profileBean.editUserProfile}" />
+	                <b:messages infoStyle="color:darkgreen" errorStyle="color:darkred"></b:messages>
+	            </h:form>
+	            <br/>
+			</b:jumbotron>
+        </b:container>
+			
+    </h:body>
+</html>

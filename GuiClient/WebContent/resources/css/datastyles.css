@@ -1,0 +1,3 @@
+tr.typepending .type { font-style: italic; }
+tr.typeaccepted .type { color: green; }
+tr.typerejected .type { color: red; }
