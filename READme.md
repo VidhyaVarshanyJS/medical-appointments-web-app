@@ -46,4 +46,4 @@ You need to download and install some things for the project.
 
 ## License
 
-Distributed under the Apache License. See [LICENSE](https://github.com/andreibbb/medical-appointments-web-app/blob/main/LICENSE) for more information.
+Distributed under the MIT License. See [LICENSE](https://github.com/andreibbb/medical-appointments-web-app/blob/main/LICENSE) for more information.
