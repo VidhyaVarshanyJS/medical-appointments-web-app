@@ -41,8 +41,8 @@ You need to download and install some things for the project.
 ### Prerequisites
 
 * Glassfish - [download link from official website](https://javaee.github.io/glassfish/download)
-* MySQL Connector Java [from to-run-things folder](https://github.com/andreiwf1/medical-appointments-web-app/tree/main/to-run-things)
-* Additional jars [needed for connector configuration](https://github.com/andreiwf1/medical-appointments-web-app/tree/main/to-run-things/jars8)
+* MySQL Connector Java - [from to-run-things folder](https://github.com/andreiwf1/medical-appointments-web-app/tree/main/to-run-things)
+* Additional jars - [needed for connector configuration - from to-run-things/jars folder](https://github.com/andreiwf1/medical-appointments-web-app/tree/main/to-run-things/jars8)
 
 ## License
 
